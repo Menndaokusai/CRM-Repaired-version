@@ -14,7 +14,7 @@ class Customer extends Model
     public function arr($num){
 
         $arr1=[
-            'Account_Name','Account_Type','Primary_Phone','Alternate_Phone','city',
+            'Customer_Name','Customer_Type','Primary_Phone','Alternate_Phone','city',
             'Ownership','Email','Manager'
         ];
 
@@ -24,18 +24,13 @@ class Customer extends Model
     }
     public function index()
     {
-        $accounts = \App\Account::paginate(15);
-        return view('/admin/account/index',compact('accounts'));
+        $customers = \App\Customer::paginate(15);
+        return view('/admin/customer/index',compact('customers'));
     }
 
     public function add()
     {
-        if(!is_logged())
-        {
-            return err('请先登录');
-        }
-
-        $account=account();
+        $account=customer();
 
         $arr1=$this->arr(1);
 
@@ -49,18 +44,14 @@ class Customer extends Model
     }
     public function del($id)
     {
-        $user=account()->find($id);
-        return $user->delete()?redirect('/admin/account'):back();
+        $user=customer()->find($id);
+        return $user->delete()?redirect('/admin/customer'):back();
     }
 
     public function updt($id)
     {
-        if(!is_logged())
-        {
-            return err('请先登录');
-        }
 
-        $account=account()->find($id);
+        $account=customer()->find($id);
 
         $arr1=$this->arr(1);
 
@@ -72,13 +63,13 @@ class Customer extends Model
 
         $account->save();
 
-        return redirect('/admin/account');
+        return redirect('/admin/customer');
 
     }
 
     public function read($id)
     {
-        $read=account()->find($id);
-        return view('/admin/account/read',compact('read'));
+        $read=customer()->find($id);
+        return view('/admin/customer/read',compact('read'));
     }
 }

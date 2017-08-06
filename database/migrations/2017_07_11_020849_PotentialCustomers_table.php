@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CustomersTable extends Migration
+class PotentialCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('Customers',function (Blueprint $table){
+        Schema::create('PotentialCustomers',function (Blueprint $table){
             $table->increments('id');
-            $table->string('Customer_Name');
-            $table->string('Customer_Type')->nullable();
+            $table->string('PC_Name');
+            $table->string('Industry');
             $table->string('Primary_Phone');
-            $table->string('Alternate_Phone')->nullable();
-            $table->text('province')->nullable();
+            $table->string('Mobile_Phone')->nullable();
             $table->text('city')->nullable();
-            $table->text('detail')->nullable();
-            $table->string('Ownership')->nullable();
+            $table->string('Company')->nullable();
             $table->string('Email')->nullable();
             $table->string('Manager');
             $table->timestamps();
@@ -36,6 +34,6 @@ class CustomersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('Customers');
+        Schema::drop('PotentialCustomers');
     }
 }

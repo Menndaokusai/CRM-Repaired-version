@@ -11,9 +11,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function customer()
-    {
-        return new \App\Customer();
+    public function customer(){
+        return \App\Customer();
     }
-
 }
