@@ -1,60 +1,87 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>TCS管理后台</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="stylesheet"  href="/easyUI/themes/default/easyui.css">
-    <link rel="stylesheet"  href="/easyUI/themes/icon.css">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="/bower_components/jvectormap/jquery-jvectormap.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="/dist/css/skins/_all-skins.min.css">
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="utf-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>TCS-CRM</title>
+<link href="/css/base.css" rel="stylesheet">
+<link href="/css/platform.css" rel="stylesheet">
+<link rel="stylesheet" href="/custom/uimaker/easyui.css">
+</head> 
+<body>
+    <div class="container">
 
-</head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
-    @include("admin.layout.header")
-    @include("admin.layout.sidebar")
-    <div class="content-wrapper">
+        @include('admin.layout.header')
 
-        @yield('content')
+        <div id="pf-bd">
+
+            @include('admin.layout.sidebar')
+
+            <div id="pf-page">
+                <div class="easyui-tabs1" style="width:100%;height:100%;">
+                  <div title="首页" style="padding:10px 5px 5px 10px;">
+                    <div class="page-iframe" src="workbench.html" frameborder="no"   border="no" height="100%" width="100%" scrolling="auto"></div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        @include('admin.layout.footer')
 
     </div>
 
-</div>
-<!-- ./wrapper -->
+    <script type="text/javascript" src="/custom/jquery.min.js"></script>
+    <script type="text/javascript" src="/custom/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
 
-<!-- jQuery 3 -->
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="/easyUI/jquery.easyui.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="/bower_components/fastclick/lib/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="/dist/js/adminlte.min.js"></script>
-<!-- Sparkline -->
-<script src="/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js"></script>
-<!-- jvectormap  -->
-<script src="/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-<!-- SlimScroll -->
-<script src="/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/dist/js/pages/dashboard2.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="/dist/js/demo.js"></script>
-</body>
+    
+    <script type="text/javascript">
+    $('.easyui-tabs1').tabs({
+      tabHeight: 44,
+      onSelect:function(title,index){
+        var currentTab = $('.easyui-tabs1').tabs("getSelected");
+        if(currentTab.find("iframe") && currentTab.find("iframe").size()){
+            currentTab.find("iframe").attr("src",currentTab.find("iframe").attr("src"));
+        }
+      }
+    })
+    $(window).resize(function(){
+          $('.tabs-panels').height($("#pf-page").height()-46);
+          $('.panel-body').height($("#pf-page").height()-76)
+    }).resize();
+
+    var page = 0,
+        pages = ($('.pf-nav').height() / 70) - 1;
+
+    if(pages === 0){
+      $('.pf-nav-prev,.pf-nav-next').hide();
+    }
+    $(document).on('click', '.pf-nav-prev,.pf-nav-next', function(){
+
+
+      if($(this).hasClass('disabled')) return;
+      if($(this).hasClass('pf-nav-next')){
+        page++;
+        $('.pf-nav').stop().animate({'margin-top': -70*page}, 200);
+        if(page == pages){
+          $(this).addClass('disabled');
+          $('.pf-nav-prev').removeClass('disabled');
+        }else{
+          $('.pf-nav-prev').removeClass('disabled');
+        }
+        
+      }else{
+        page--;
+        $('.pf-nav').stop().animate({'margin-top': -70*page}, 200);
+        if(page == 0){
+          $(this).addClass('disabled');
+          $('.pf-nav-next').removeClass('disabled');
+        }else{
+          $('.pf-nav-next').removeClass('disabled');
+        }
+        
+      }
+    })
+    </script>
+</body> 
 </html>

@@ -1,47 +1,37 @@
-<header class="main-header">
-    <!-- Logo -->
-    <a href="/admin/home" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"></span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">TCSCRM</span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-        <!-- Sidebar toggle button-->
-        <a href="/#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            <span class="sr-only">Toggle navigation</span>
-        </a>
+<div id="pf-hd">
+    <div class="pf-logo">
+        <img src=/images/main/main_logo.png" alt="logo">
+    </div>
 
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-                <!-- User Account: style can be found in dropdown.less -->
-                <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">{{\Auth::guard("web")->user()->name}}</span>
+    <div class="pf-user">
+        <div class="pf-user-photo">
+            <img src="/images/main/user.png" alt="">
+        </div>
+        <h4 class="pf-user-name ellipsis">tcs</h4>
+        <i class="iconfont xiala">&#xe607;</i>
+
+        <div class="pf-user-panel">
+            <ul class="pf-user-opt">
+                <li>
+                    <a href="javascript:;">
+                        <i class="iconfont">&#xe60d;</i>
+                        <span class="pf-opt-name">用户信息</span>
                     </a>
-                    <ul class="dropdown-menu">
-                        <!-- User image -->
-                        <li class="user-header">
-                            <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                            <p>
-                                Alexander Pierce - Web Developer
-                                <small>Member since Nov. 2012</small>
-                            </p>
-                        </li>
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
-                            </div>
-                        </li>
-                    </ul>
+                </li>
+                <li class="pf-modify-pwd">
+                    <a href="http://www.uimaker.com">
+                        <i class="iconfont">&#xe634;</i>
+                        <span class="pf-opt-name">修改密码</span>
+                    </a>
+                </li>
+                <li class="pf-logout">
+                    <a href="login.html">
+                        <i class="iconfont">&#xe60e;</i>
+                        <span class="pf-opt-name">退出</span>
+                    </a>
                 </li>
             </ul>
         </div>
-    </nav>
-</header>
+    </div>
+</div>
+@
