@@ -20,7 +20,7 @@
             <div id="pf-page">
                 <div class="easyui-tabs1" style="width:100%;height:100%;">
                   <div title="首页" style="padding:10px 5px 5px 10px;">
-                    <div class="page-iframe" src="workbench.html" frameborder="no"   border="no" height="100%" width="100%" scrolling="auto"></div>
+                    <iframe class="page-iframe"  frameborder="no"   border="no" height="100%" width="100%" scrolling="auto"></iframe>
                   </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <div id="pf-hd">
     <div class="pf-logo">
-        <img src=/images/main/main_logo.png" alt="logo">
+        <img src="/images/main/main_logo.png" alt="">
     </div>
 
     <div class="pf-user">
@@ -19,7 +19,7 @@
                     </a>
                 </li>
                 <li class="pf-modify-pwd">
-                    <a href="http://www.uimaker.com">
+                    <a>
                         <i class="iconfont">&#xe634;</i>
                         <span class="pf-opt-name">修改密码</span>
                     </a>
