@@ -17,12 +17,10 @@
 
             @include('admin.layout.sidebar')
 
-            <div id="pf-page">
-                <div class="easyui-tabs1" style="width:100%;height:100%;">
+            <div id="pf-page" class="easyui-tabs1" style="width:100%;height:100%;">
                   <div title="首页" style="padding:10px 5px 5px 10px;">
-                    <iframe class="page-iframe"  frameborder="no"   border="no" height="100%" width="100%" scrolling="auto"></iframe>
+                    <iframe class="page-iframe" frameborder="no" border="no" height="100%" width="100%" scrolling="auto"></iframe>
                   </div>
-                </div>
             </div>
         </div>
 
@@ -36,6 +34,20 @@
 
     
     <script type="text/javascript">
+
+        function addTab(title, name){
+            if ($('#pf-page').tabs('exists', title)){
+                $('#pf-page').tabs('select', title);
+            } else {
+                var content = '<iframe name="'+name+'" class="page-iframe" frameborder="no" border="no" height="100%" width="100%" scrolling="auto"></iframe>';
+                $('#pf-page').tabs('add',{
+                    title:title,
+                    content:content,
+                    closable:true
+                });
+            }
+        }
+
     $('.easyui-tabs1').tabs({
       tabHeight: 44,
       onSelect:function(title,index){
@@ -44,7 +56,7 @@
             currentTab.find("iframe").attr("src",currentTab.find("iframe").attr("src"));
         }
       }
-    })
+    });
     $(window).resize(function(){
           $('.tabs-panels').height($("#pf-page").height()-46);
           $('.panel-body').height($("#pf-page").height()-76)

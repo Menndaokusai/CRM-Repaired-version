@@ -7,23 +7,23 @@ use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
-    public function doadd(){
+    public function add(){
         return parent::customer()->add();
     }
 
-    public function dodel($id){
+    public function del($id){
         return parent::customer()->del($id);
     }
 
-    public function doupdt($id){
+    public function updt($id){
         return parent::customer()->updt($id);
     }
 
-    public function doread($id){
+    public function read($id){
         return parent::customer()->read($id);
     }
 
-    public function doindex(){
+    public function index(){
         return parent::customer()->index();
     }
 

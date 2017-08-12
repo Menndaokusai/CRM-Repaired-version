@@ -13,29 +13,24 @@
                 <i class="iconfont">&#xe642;</i>
             </a>
             <ul class="sider-nav-s">
-                <li><a href="#">用户管理</a></li>
+                <li><a href="/admin/users" target="iframe_1" onclick="addTab('用户管理','iframe_1')">用户管理</a></li>
             </ul>
         </li>
         <li>
             <a href="javascript:;">
                 <span class="iconfont sider-nav-icon">&#xe625;</span>
-                <span class="sider-nav-title">潜在客户</span>
+                <span class="sider-nav-title">客户管理</span>
                 <i class="iconfont">&#xe642;</i>
             </a>
-        </li>
-        <li>
-            <a href="javascript:;">
-                <span class="iconfont sider-nav-icon">&#xe62f;</span>
-                <span class="sider-nav-title">客户</span>
-                <i class="iconfont">&#xe642;</i>
-            </a>
-        </li>
-        <li>
-            <a href="javascript:;">
-                <span class="iconfont sider-nav-icon">&#xe647;</span>
-                <span class="sider-nav-title">联系人</span>
-                <i class="iconfont">&#xe642;</i>
-            </a>
+            <ul class="sider-nav-s">
+                <li><a href="/admin/potentialcustomer" target="iframe_2" onclick="addTab('潜在客户','iframe_2')">潜在客户</a></li>
+            </ul>
+            <ul class="sider-nav-s">
+                <li><a href="/admin/customer" target="iframe_3" onclick="addTab('客户','iframe_3')">客户</a></li>
+            </ul>
+            <ul class="sider-nav-s">
+                <li><a href="/admin/contact" target="iframe_4" onclick="addTab('联系人','iframe_4')">联系人</a></li>
+            </ul>
         </li>
     </ul>
 </div>
