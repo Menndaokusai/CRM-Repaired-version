@@ -1,49 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>DataGrid Complex Toolbar - jQuery EasyUI Demo</title>
-    <link rel="stylesheet" type="text/css" href="/jqeasyui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="/jqeasyui/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="/jqeasyui/demo/demo.css">
-    <script type="text/javascript" src="/jqeasyui/jquery.min.js"></script>
-    <script type="text/javascript" src="/jqeasyui/jquery.easyui.min.js"></script>
-</head>
-<body>
-<table class="easyui-datagrid" title="DataGrid Complex Toolbar" style="width:700px;height:250px"
-       data-options="rownumbers:true,singleSelect:true,url:'datagrid_data1.json',method:'get',toolbar:'#tb'">
-    <thead>
-    <tr>
-        <th data-options="field:'itemid',width:80">Item ID</th>
-        <th data-options="field:'productid',width:100">Product</th>
-        <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
-        <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
-        <th data-options="field:'attr1',width:240">Attribute</th>
-        <th data-options="field:'status',width:60,align:'center'">Status</th>
-    </tr>
-    </thead>
-</table>
-<div id="tb" style="padding:5px;height:auto">
-    <div style="margin-bottom:5px">
-        <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true"></a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true"></a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true"></a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true"></a>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true"></a>
+<link href="css/base.css" rel="stylesheet">
+<link rel="stylesheet" href="/custom/uimaker/easyui.css">
+<link rel="stylesheet" type="text/css" href="/custom/uimaker/icon.css">
+<link rel="stylesheet" href="css/providers1.css">
+<div class="container">
+       <table id="dg" style="width:100%;height:529px" title="全体供应商列表" data-options="
+                rownumbers:true,
+                singleSelect:false,
+                autoRowHeight:false,
+                pagination:true,
+                fitColumns:true,
+                striped:true,
+                checkOnSelect:false,
+                selectOnCheck:false,
+                collapsible:true,
+                toolbar:'#tb',
+                pageSize:10">
+            <thead>
+                <tr>
+                    <th field="code" width="110">供应商编码</th>
+                    <th field="name" width="226">供应商名称</th>
+                    <th field="level" width="112">等级</th>
+                    <th field="provide" width="170">主供品类</th>
+                    <th field="full" width="130">资料是否完善</th>
+                    <th field="issubmit" width="136">调查表格是否提交</th>
+                    <th field="status" width="120">审核状态</th>
+                    <th field="note" width="105">备注</th>
+                </tr>
+            </thead>
+        </table>
+      <div id="tb" style="padding:0 30px;">
+        <div class="conditions">
+            <span class="con-span">供应商编码: </span><input class="easyui-textbox" type="text" name="code" style="width:166px;height:35px;line-height:35px;"></input>
+            <span class="con-span">供应商名称: </span><input class="easyui-textbox" type="text" name="name" style="width:166px;height:35px;line-height:35px;"></input>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-search" data-options="selected:true">查询</a>
+            <a href="#" class="easyui-linkbutton" iconCls="icon-reload">重置</a>
+        </div>
+      </div>
     </div>
-    <div>
-        Date From: <input class="easyui-datebox" style="width:80px">
-        To: <input class="easyui-datebox" style="width:80px">
-        Language:
-        <select class="easyui-combobox" panelHeight="auto" style="width:100px">
-            <option value="java">Java</option>
-            <option value="c">C</option>
-            <option value="basic">Basic</option>
-            <option value="perl">Perl</option>
-            <option value="python">Python</option>
-        </select>
-        <a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>
-    </div>
-</div>
-</body>
-</html>
+    <script type="text/javascript" src="/custom/jquery.min.js"></script>
+    <script type="text/javascript" src="/custom/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/custom/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="/js/table.js"></script>
