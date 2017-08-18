@@ -11,6 +11,16 @@ function addTab(title, name){
     }
 }
 
+$('.easyui-tabs1').tabs({
+    tabHeight: 44,
+    onSelect:function(title,index){
+        var currentTab = $('.easyui-tabs1').tabs("getSelected");
+        if(currentTab.find("iframe") && currentTab.find("iframe").size()){
+            currentTab.find("iframe").attr("src",currentTab.find("iframe").attr("src"));
+        }
+    }
+})
+
 $(window).resize(function(){
     $('.tabs-panels').height($("#pf-page").height()-46);
     $('.panel-body').height($("#pf-page").height()-76)
