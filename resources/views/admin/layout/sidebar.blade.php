@@ -1,7 +1,7 @@
 <div id="pf-sider">
     <h2 class="pf-model-name">
         <span class="iconfont">&#xe64a;</span>
-        <span class="pf-name">Main Navigation</span>
+        <span class="pf-name">主菜单</span>
         <span class="toggle-icon"></span>
     </h2>
 
