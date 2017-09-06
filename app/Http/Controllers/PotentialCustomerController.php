@@ -7,24 +7,59 @@ use Illuminate\Http\Request;
 class PotentialCustomerController extends Controller
 {
 
-    public function add(){
-        return parent::pc()->add();
-    }
+    public function arr($num){
 
-    public function del($id){
-        return parent::pc()->del($id);
-    }
+        $arr1=[
+            'PC_Name','Industry','Primary_Phone','Mobile_Phone','city',
+            'Company','Email','Manager'
+        ];
 
-    public function updt($id){
-        return parent::pc()->updt($id);
-    }
+        if($num==1){
+            return $arr1;
+        }
 
-    public function read($id){
-        return parent::pc()->read($id);
     }
+    public function index()
+    {
+        return view('/admin/PotentialCustomer/index');
+    }
+    public function add(Request $request)
+    {
+        $pc=parent::pc();
 
-    public function index(){
-        return parent::pc()->index();
+        $arr1=$this->arr(1);
+
+        foreach ($arr1 as $value){
+            if(!empty($request[$value])){
+                $pc[$value]=$request[$value];
+            }
+        }
+
+        $pc->save();
+    }
+    public function del($id)
+    {
+        $user=parent::pc()->find($id);
+        return $user->delete()?1:0;
+    }
+    public function updt(Request $request)
+    {
+        $pc=parent::pc()->find($request->get('id'));
+
+        $arr1=$this->arr(1);
+
+        foreach ($arr1 as $value){
+            if(!empty($request[$value])){
+                $pc[$value]=$request[$value];
+            }
+        }
+
+        $pc->save();
+    }
+    public function read()
+    {
+        $read=parent::pc()->all();
+        return $read;
     }
 
 }

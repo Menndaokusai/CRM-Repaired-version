@@ -29,15 +29,15 @@ Route::group(['middleware' => 'web'], function () {
 
             Route::get('/contact', 'ContactController@index');
             Route::any('/contacts/add','ContactController@add');
-            Route::put('/contacts/updt/{read}','ContactController@updt');
+            Route::any('/contacts/updt/{read}','ContactController@updt');
             Route::any('/contacts/del/{id}','ContactController@del');
             Route::any('/contacts/read/{id}','ContactController@read');
 
             Route::get('/customer','CustomerController@index');
             Route::any('/customers/add','CustomerController@add');
-            Route::put('/customers/updt/{read}','CustomerController@updt');
+            Route::put('/customers/updt','CustomerController@updt');
             Route::any('/customers/del/{id}','CustomerController@del');
-            Route::any('/customers/read/{id}','CustomerController@read');
+            Route::any('/customers/read','CustomerController@read');
 
             Route::get('/potentialcustomer','PotentialCustomerController@index');
             Route::any('/pc/add','PotentialCustomerController@add');

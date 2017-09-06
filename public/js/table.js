@@ -99,25 +99,19 @@
     })
 })(jQuery);
 
-function getData(){
-    var rows = [];
-    for(var i=1; i<=20; i++){
-        rows.push({
-            code: '10695',
-            name: '南京天泽星网股份有限公司',
-            level: '正式',
-            provide: '光纤通信设备配件',
-            full: '√',
-            issubmit: '√',
-            status:'已审核',
-            note: '-'
-        });
-    }
-    return rows;
-}
-
-$(function(){
-    $('#dg').datagrid({data:getData()}).datagrid('clientPaging');
+$(function () {
+    $('#dg').datagrid({
+        url:'/admin/customers/read',
+        method:'get',
+        columns: [[
+            { field: 'id', title: '客户编号', width: 100 },
+            { field: 'Customer_Name', title: '客户名', width: 120 },
+            { field: 'Primary_Phone', title: '联系电话', width: 120 },
+            { field: 'Alternate_Phone', title: '备用电话', width: 120 },
+            { field: 'Email', title: '邮箱', width: 170 },
+            { field: 'Manager', title: '负责人', width: 60 }
+        ]]
+    })
 });
 
 

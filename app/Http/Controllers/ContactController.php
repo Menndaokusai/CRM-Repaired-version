@@ -7,24 +7,64 @@ use Illuminate\Support\Facades\Hash;
 
 class ContactController extends Controller
 {
-    public function add(Request $request){
-        return parent::contact()->add($request);
+    public function arr($num){
+        $arr1=[
+            'Contact_Name','Mobile_Phone','Home_Phone','Office_Phone','city',
+            'Asst_Phone','Asst_Name','Sex','Department',
+            'Designation','Email','Company','Manager','Birth'
+        ];
+
+        if($num==1){
+            return $arr1;
+        }
+
     }
 
-    public function del($id){
-        return parent::contact()->del($id);
+    public function add($request)
+    {
+        $contact=parent::contact();
+
+        $arr1=$this->arr(1);
+
+        foreach ($arr1 as $value){
+            if(!empty($request->get($value))){
+                $contact[$value]=$request->get($value);
+            }
+        }
+
+        $contact->save();
     }
 
-    public function updt(Request $request,$id){
-        return parent::contact()->updt($request,$id);
+    public function del($id)
+    {
+        $user=parent::contact()->find($id);
+        return $user->delete()?1:0;
     }
 
-    public function read($id){
-        return parent::contact()->read($id);
+    public function updt($request)
+    {
+
+        $contact=parent::Contact()->find($request['id']);
+
+        $arr1=$this->arr(1);
+
+        foreach ($arr1 as $value){
+            if(!empty($request->get($value))){
+                $contact[$value]=$request->get($value);
+            }
+        }
+
+        $contact->save();
+
+    }
+    public function read()
+    {
+        $read=parent::Contact()->all();
+        return $read;
     }
 
-    public function index(){
-        return parent::contact()->index();
+    public function index()
+    {
+        return view('/admin/contact/index');
     }
-
 }
